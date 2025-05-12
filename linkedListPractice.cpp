@@ -2,18 +2,21 @@
 #include <vector>
 using namespace std;
 
+// create linked list
+
 struct Node {
+
     public:
     int data;
     Node*next;
 
     public:
-    Node(int data1,Node* next1){
+    Node(int data1,Node* next){
         data = data1;
-        next = next1;
+        next = nullptr;
     }
 
-     public:
+    public:
     Node(int data1){
         data = data1;
         next = nullptr;
@@ -32,21 +35,6 @@ Node* convertArr2LL(vector <int> &arr){
     return head;
 }
 
-
-// print length of  given linked list
-
-int lengthOfLL(Node* head){
-    int cnt = 0;
-     Node* temp = head;
-    while (temp)
-    {
-        //cout << temp->data << " ";
-        temp = temp->next;
-        cnt ++;
-    }
-    return cnt;
-}
-
 int checkIfPresent(Node* head, int val){
      Node* temp = head;
      while (temp)
@@ -58,7 +46,6 @@ int checkIfPresent(Node* head, int val){
      return 0;
      
 }
-
 
 void print(Node* head){
     //Node* temp = head;
@@ -78,23 +65,26 @@ Node* removeHead(Node* head){
     delete temp;
     return head;
 }
-int main(){
-    vector<int> arr= {22,5,8,7,3,56,7};
-    // Node* y = new Node(arr[0]);
-    // cout << y->next;
 
+Node* removeTail(Node* head){
+    if(head == NULL || head->next == NULL){
+        return NULL;
+    }
+    Node* temp = head;
+    while(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+
+    return head;
+}
+int main(){
+    vector <int> arr = {2,3,12,34,5};
     Node* head = convertArr2LL(arr);
-    head = removeHead(head);
+    //cout << y->data;
+    //cout << checkIfPresent(head,11);
+    head = removeTail(head);
     print(head);
-    //cout << checkIfPresent(head,15) << " ";
-    //cout << head->data;
-    // print all element of linked list
-    // Node* temp = head;
-    // while (temp)
-    // {
-    //     cout << temp->data << " ";
-    //     temp = temp->next;
-    // }
-    // cout << endl;
     return 0;
 }

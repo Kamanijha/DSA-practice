@@ -44,9 +44,36 @@ void printEvenNumber(int n)
 }
 // chack number prime or not
 
+int countDigit(int n){
+    int cnt = 0;
+    string sz = to_string(n);
+    for(int i =0;i<sz.length();i++){
+        cnt ++;
+    }
+    return cnt;
+}
+
+
+int removeDuplicate(int arr[],int n){
+
+    int cnt;
+    for(int i = 0;i<n;i++){
+        if(arr[i] != cnt){
+            cnt = arr[i];
+            cnt ++;
+        }
+    }
+    return cnt;
+}
 int main()
 {
-    printEvenNumber(9);
+    
+    int arr[] = {0,0,1,1,1,2,2,3,3,4,5,6};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    cout << removeDuplicate(arr,n) << endl;
+    // int n = 12334;
+    // cout << countDigit(n) << endl;
+   // printEvenNumber(9);
     // printNumber(15);
     //     int age;
     //     cout << "enter age :";

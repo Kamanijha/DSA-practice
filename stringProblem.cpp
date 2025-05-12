@@ -43,14 +43,66 @@ using namespace std;
 //     return " ";
 // }
 
+// longest common prefix in string
+
+string commonPrefix(string str[],int n){
+   sort(str,str+n);
+   string first = str[0];
+   string last = str[n-1];
+   string prefix ="";
+   for(int i = 0;i<n;i++){
+    if(first[i] == last[i]){
+        prefix += first[i];
+        
+    }else{
+        break;
+    }
+   }
+    return prefix;
+}
 
 
+// isomorphic string
+
+int isIsomorphic(string s1,string s2){
+    if(s1.length() != s2.length()){
+        return false;
+    }
+
+    int n = s1.length();
+    for(int i = 0; i<n;i++){
+        char c1 = s1[i];
+        char c2 = s2[i];
+
+        for(int j = 0;j<n;j++){
+
+            if(s1[j] == c1 && s2[j] != c2){
+                return false;
+            }
+
+            if(s2[j] == c2 && s1[i] != c1){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 int main(){
 
-    string s = {"hello","world"};
+    string s1 = "paper";
+    string s2 = "title";
+    cout << isIsomorphic(s1,s2) << endl;
+
+     
+    // string str[] = {"ball","caby","banana"};
+    // cout << str->length() << endl;
+    // int n = sizeof(str)/sizeof(str[0]);
+    // string res = commonPrefix(str,n) ;
+    // cout << res ;
+    //string s = {"hello","world"};
     //cout << reverseWord(s) << endl;
-    cout << s ;
-    string str = "2345";
+    //cout << s ;
+    //string str = "2345";
     //cout << maxOdd(str) << endl ;
    
     return 0;
