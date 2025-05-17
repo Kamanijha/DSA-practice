@@ -32,7 +32,6 @@ Node* convertArr2LL(vector <int> &arr){
     return head;
 }
 
-
 // print length of  given linked list
 
 int lengthOfLL(Node* head){

@@ -8,7 +8,8 @@ public:
     int data;
     Node *next;
 
-    Node(int value){
+    Node(int value)
+    {
         data = value;
         next = NULL;
     }
@@ -35,10 +36,9 @@ int main()
     // cout << a1.data << " " << a1.next << endl;
     // cout << a2.data << " " << a2.next << endl;
     // cout << a3.data << " " << a3.next << endl;
- 
 
- // this dynamic created linkked list
-  // but adding value mannualy  we can do the same workk usinf constructer
+    // this dynamic created linkked list
+    // but adding value mannualy  we can do the same workk usinf constructer
     // Node * head;
     // head = new Node();
     // head->data = 4;
@@ -60,7 +60,7 @@ int main()
     // cout << second->data <<" " << second->next << endl;
     // cout << third->data <<" " << third->next << endl;
 
-   // print the list of element
+    // print the list of element
     // Node* temp = head;
     // while (temp != NULL)
     // {
@@ -68,28 +68,27 @@ int main()
     //     temp = temp->next;
     // }
     // cout << endl;
-   
 
-   // 1.write in this way 
-//    Node* head;
-//     head = new Node(4);
-//     cout << head-> data;
-   
-   // 2. also write in this way
-   Node* head = new Node(4);
-   Node* second = new Node(6);
-   Node* third = new Node(9);
+    // 1.write in this way
+    //    Node* head;
+    //     head = new Node(4);
+    //     cout << head-> data;
 
-   // connect node
-   head->next = second;
-   second->next = third;
+    // 2. also write in this way
+    Node *head = new Node(4);
+    Node *second = new Node(6);
+    Node *third = new Node(9);
 
-   Node* temp = head;
-   while(temp != NULL){
-    cout << temp->data << " ";
-    temp = temp->next;
-   }
+    // connect node
+    head->next = second;
+    second->next = third;
+
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
 
     return 0;
-    
 }
